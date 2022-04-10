@@ -1,0 +1,1 @@
+The cleaned data file (i.e., cleaned SHS daily statistics file) cannot be provided to protect the privacy of past and current student's contact information.

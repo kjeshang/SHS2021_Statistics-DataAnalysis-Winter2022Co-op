@@ -1,0 +1,1 @@
+The raw data files (i.e., SHS daily statistics files) cannot be provided to protect the privacy of past and current student's contact information.

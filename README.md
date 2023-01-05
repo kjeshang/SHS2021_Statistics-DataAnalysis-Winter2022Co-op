@@ -144,7 +144,9 @@ The project was performed across several stages. Below are the stages the projec
     * Import the relevant Python packages.
     * For all of the analysis and aggregations performed in the prior stage, create visualizations ot graphically communicate the trends and observations for basic reporting purposes.
 
+## Credits
 
+This project was completed independently. However, I would like to thank CEIT Service Desk in hiring me as a Co-op student during the Fall 2021 & Winter 2022 semesters. I am thankful of them allowing me to pursue this project and allowing me to use the SHS statistics data to perform thorough data cleaning and exploratory data analysis for the purpose of my own practice and to streamline past-unclean data.
 
 
 

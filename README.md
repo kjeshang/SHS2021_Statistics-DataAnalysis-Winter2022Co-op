@@ -12,6 +12,26 @@ To perform this project at an optimal level, I utilized the **Python** programmi
 
 The raw and cleaned datasets are not provided to protect the privacy of the students that required technological assistance from Douglas College CEIT Students Helping Students.
 
+## Project Structure
+
+The project files are within the **SHS_2021Stats_DataAnalysis** directory of this repository. Below is a breakdown in table form that names the main project files with descriptions.
+
+|File|Type|Description|
+|--|--|--|
+|1_rawData|Directory|Contains the raw SHS statistics data for Winter 2021, Summer 2021, and Fall 2021 semesters in the form of Excel Workbooks.|
+|2_data|Directory|Contains the combined & cleaned 2021 SHS Statistics Data Excel Workbook, and another Excel Workbook that contains all Workday, Weekday, and Public Holiday dates for the 2021 calender year.|
+|3_analyzedData|Directory|Contains Excel Workbooks containing analysis and aggregations for each of the following columns: _Date_, _Time Range_, _Task Category_, and _Escalation Status_.|
+|4_visualizations|Directory|Contains images of all of the data visualizations.|
+|References|Directory|Contains referential files that were helpful but not directly utilized in the codebase of the project.|
+|1_dataCleaning|Jupyter Notebook||
+|2_exploratoryDataAnalysis|Jupyter Notebook||
+|2_exploratoryDataAnalysis|Jupyter Notebook||
+|3.1_Date_Visualizations|Jupyter Notebook||
+|3.2_TimeRange_Visualizations|Jupyter Notebook||
+|3.3_TaskCategory_Visualizations|Jupyter Notebook||
+|3.4_EscalationStatus_Visualizations|Jupyter Notebook||
+|SHS Annual Statistics Report 2021|PDF||
+
 ## How the Project Works
 
 The project was performed across several stages. Below are the stages the project went through and explanation of the steps taken within those respective stages.
@@ -22,7 +42,7 @@ The project was performed across several stages. Below are the stages the projec
     * Update the column headings for all of the dataframes such that they are concise and not too long, which will assist when combining all dataframes together after data cleaning is complete.
     * Create a new column called _Description_ to serve as a column to save initial _Task Category_ column's entries that were made by past SHS during the work terms, but have typographical error, discrepency, or is so unique that it does not align with the current pre-determined task category types used by Service Desk and SHS.
     * Reorder the column labels of the dataframes in the following way: _Date_, _Time Range_, _Task Category_, _Escalated to SD?_, _Student Contact_, _Description_.
-    * Clean the _Date_ column such that entries indicate a date that reflects a valid workday, and NOT a weekend day or public/statutory holiday.
+    * Clean the _Date_ column such that entries indicate a date that reflects a valid workday, and NOT a weekend day.
     * Clean the _Time Range_ column such that the entries have no typographical error, discrepency. Specifically, all time ranges must be of half-hour durations where the start time is half-hour earlier than the end time, all start/end times must have a "0" before the hour value if the hour value is a single digit number, and the time ranges must reflect a 24-hour clock. The aforementioned cleaning assists when ordering the dataframes in chronological order after data cleaning is complete.
     * Clean the _Task Category_ column such that all entries that have discrepencies, typographical errors, and any other anomaly, are replaced with entries that closely align with one of the following task category types currently used by Service Desk and SHS:
         * Academic Advising
@@ -44,8 +64,86 @@ The project was performed across several stages. Below are the stages the projec
     * Order the now combined dataframes's rows in chronological order by the _Date_ and _Time Range_ columns. Drop all duplicate values if necessary.
     * Export the final cleaned dataframe containing the "Cleaned 2021 SHS Statistics Data" as an Excel workbook
 2. Exploratory Data Analysis
+    * Import the relevant Python packages.
+    * Import the "Cleaned 2021 SHS Statistics Data" Excel Workboook as a dataframe.
+    * Import the "Days in 2021" Excel Workbook as a dataframe to help assit with constructing accurate aggregations for the _Date_ column.
+    * Create variables to serve as parameters to serve as parameters for performing aggregations & analysis. Below are some examples:
+        * List of raw semester date ranges
+        * List of semester names
+        * List of month names
+        * List of time of day created from time ranges
+        * Time of day list
+        * List of task categories
+        * etc.
+    * Create function that calculates Descriptive Statistics (i.e., measures of dispersion and central tendency) per given time period (e.g., year, semester, month, day of week, etc). This function is applied when performing analysis in this stage of the project. During analysis, the time period, total number of cases per time period, number of work days per time period, and number of work days with no student interactions/cases is also calculated. Below is a full list of statistical measures that are considered for analysis:
+        * Mean
+        * Median
+        * Mode
+        * Minimum
+        * Maximum
+        * Range
+        * 1st Quartile
+        * 2nd Quartile
+        * 3rd Quartile
+        * 4th Quartile
+        * Interquartile Range
+        * Mean Absolute Deviation
+        * Variance
+        * Standard Deviation
+        * Skewness
+        * Kurtosis
+    * Analyze the descriptive statistics and perform aggregations for all of the columns in the dataframe except for the _Student Contact_ column. The output of analysis would also be that of a dataframe. For each column of the dataframe, an Excel Workbook is created. A sheet is created for each analysis dataframe per column.
+    * Below is a breakdown of the various analysis performed for each colulmn.
+        * _Date_ column
+            * Total Cases per Day
+            * Descriptive Statistics of the Year
+            * Descriptive Statistics per Semester
+            * Descriptive Statistics per Month
+            * Descriptive Statistics per Day of Week
+            * Descriptive Statistics per Day of Week in a particular Semester
+            * Descriptive Statistics per Week
+        * _Time Range_ column
+            *  Total Cases per Time Range
+            *  Total Cases per Time Range by Time of Day
+            *  Total Cases per Time Range by Semester
+            *  Total Cases per Time Range by Semester & Time of Day
+            *  Total Cases per Time Range by Month
+            *  Total Cases per Time Range by Month & Time of Day
+            *  Total Cases per Time Range by Day of Week
+            *  Total Cases per Time Range by Day of Week & Time of Day
+            *  Total Cases per Time Range by Day of Week in a particular semester
+            *  Total Cases per Time Range by Day of Week & Time of Day in a particular semester
+            *  Total Cases per Time Range by Week
+            *  Total Cases per Time Range by Week & Time of Day
+        *  _Task Category_ column
+            * Total Cases per Task Category
+            * Total Cases per Task Category by Semester
+            * Total Cases per Task Category by Month
+            * Total Cases per Task Category by Day of Week
+            * Total Cases per Task Category by Day of Week in a particular semester
+            * Total Cases per Task Category by Week
+            * Total Cases per Task Category by Time Range
+            * Total Cases per Task Category by Time of Day
+            * Total Cases per Task Category by Time Range in a particular semester
+            * Total Cases per Task Category by Time of Day in a particular Semester
+        * _Escalated to SD?_ column (i.e., Escalation Status)
+            * Total Cases per Escalation Status 
+            * Total Cases per Escalation Status by Semester
+            * Total Cases per Escalation Status by Month
+            * Total Cases per Escalation Status by Day of Week
+            * Total Cases per Escalation Status by Day of Week in a particular semester
+            * Total Cases per Escalation Status by Week
+            * Total Cases per Escalation Status by Time Range
+            * Total Cases per Escalation Status by Time of Day
+            * Total Cases per Escalation Status by Time Range in a particular semester
+            * Total Cases per Escalation Status by Time of Day in a particular semester
+            * Total Cases per Escalation Status by Task Category
+            * Total Cases per Escalation Status by Task Category in a particular semester
 3. Data Visualization
-
+    > Note that this stage splits up the steps to perform Data Visualization by each analyzed column (i.e., Date, Time Range, Task Category, Escalated to SD?), of which each has its own Excel workbook with several sheets of descriptive statistics and aggregations.
+    
+    * Import the relevant Python packages.
+    * For all of the analysis and aggregations performed in the prior stage, create visualizations ot graphically communicate the trends and observations for basic reporting purposes.
 
 
 

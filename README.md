@@ -23,14 +23,13 @@ The project files are within the **SHS_2021Stats_DataAnalysis** directory of thi
 |3_analyzedData|Directory|Contains Excel Workbooks containing analysis and aggregations for each of the following columns: _Date_, _Time Range_, _Task Category_, and _Escalation Status_.|
 |4_visualizations|Directory|Contains images of all of the data visualizations.|
 |References|Directory|Contains referential files that were helpful but not directly utilized in the codebase of the project.|
-|1_dataCleaning|Jupyter Notebook||
-|2_exploratoryDataAnalysis|Jupyter Notebook||
-|2_exploratoryDataAnalysis|Jupyter Notebook||
-|3.1_Date_Visualizations|Jupyter Notebook||
-|3.2_TimeRange_Visualizations|Jupyter Notebook||
-|3.3_TaskCategory_Visualizations|Jupyter Notebook||
-|3.4_EscalationStatus_Visualizations|Jupyter Notebook||
-|SHS Annual Statistics Report 2021|PDF||
+|1_dataCleaning|Jupyter Notebook|The Jupyter Notebook that performs all data cleaning and transformation steps to construct a unified-cleeaned SHS 2021 Statistics Dataset.|
+|2_exploratoryDataAnalysis|Jupyter Notebook|Performs descriptive statistics analysis and aggregations of the following columns in the combined SHS 2021 Statistics Dataset: _Date_, _Time Range_, _Task Category_, and _Escalation Status_.|
+|3.1_Date_Visualizations|Jupyter Notebook|The Jupyter Notebook containing the codebase and output to generate all visualizations related to the _Date_ column.|
+|3.2_TimeRange_Visualizations|Jupyter Notebook|The Jupyter Notebook containing the codebase and output to generate all visualizations related to the _Time Range_ column.|
+|3.3_TaskCategory_Visualizations|Jupyter Notebook|The Jupyter Notebook containing the codebase and output to generate all visualizations related to the _Task Category_ column.|
+|3.4_EscalationStatus_Visualizations|Jupyter Notebook|The Jupyter Notebook containing the codebase and output to generate all visualizations related to the _Escalated to SD?_ column.|
+|SHS Annual Statistics Report 2021|PDF|Combines all data visualizations into a singular & easy-to-navigate annual report.|
 
 ## How the Project Works
 
